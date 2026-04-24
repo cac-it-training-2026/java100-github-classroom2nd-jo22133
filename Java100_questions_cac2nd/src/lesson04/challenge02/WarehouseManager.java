@@ -95,21 +95,25 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
 		//ここに入力処理を記述する。
-
+		String str = br.readLine();
+		int i = Integer.parseInt(str);
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
-
+		String string = br.readLine();
+		int in = Integer.parseInt(string);
 
 		//ここに入力処理を記述する。
-
 
 		boolean errFlag = false;
 
+		if (i == 0 || i > 3 || in == 0 || in > 3) {
+
+			errFlag = true;
+
+		}
 
 		//ここに入力値の範囲チェック処理を記述する。
-
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +130,52 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
 
+			if (i == 1 && in == 1) {
+				charArray = new char[1];
+				charArray[0] = 'a';
+
+			} else if (i == 1 && in == 2) {
+				charArray = new char[2];
+				charArray[0] = 'a';
+				charArray[1] = 'b';
+
+			} else if (i == 1 && in == 3) {
+				charArray = new char[3];
+				charArray[0] = 'a';
+				charArray[1] = 'b';
+				charArray[2] = 'c';
+
+			} else if (i == 2 && in == 1) {
+				strArray = new String[1];
+				strArray[0] = "abc";
+			} else if (i == 2 && in == 2) {
+				strArray = new String[2];
+				strArray[0] = "abc";
+				strArray[1] = "def";
+			} else if (i == 2 && in == 3) {
+				strArray = new String[3];
+				strArray[0] = "abc";
+				strArray[1] = "def";
+				strArray[2] = "ghi";
+
+			} else if (i == 3 && in == 1) {
+				intArray = new int[1];
+				intArray[0] = 1;
+
+			} else if (i == 3 && in == 2) {
+				intArray = new int[2];
+				intArray[0] = 1;
+				intArray[1] = 2;
+
+			} else if (i == 3 && in == 3) {
+				intArray = new int[3];
+				intArray[0] = 1;
+				intArray[1] = 2;
+				intArray[2] = 3;
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,17 +185,25 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
+			if (i == 1) {
+				System.out.println(charArray[in - 1]);
+			} else if (i == 2) {
+				System.out.println(strArray[in - 1]);
 
+			} else if (i == 3) {
+				System.out.println(intArray[in - 1]);
 
+			}
 			System.out.println("です。\n");
 
 			System.out.println("Z先輩：");
 			System.out.println("はい、ありがとう。ちゃんと出来てますね。\n");
 		} else {
+
 			System.out.println("\nZ先輩：");
 			System.out.println("そのような選択肢はありません。");
 		}
+
 	}
 }

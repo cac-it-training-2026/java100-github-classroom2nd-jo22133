@@ -66,12 +66,32 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに必要な配列の宣言を記述する。
-
+		int[] carry = new int[5];
+		int[] darry = new int[5];
+		int[] earry = new int[5];
+		int num = 0;
+		int sum = 0;
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
 
+		int[][] allarry = new int[3][5];
+		allarry[0] = carry;
+		allarry[1] = darry;
+		allarry[2] = earry;
+
+		for (int i = 0; i < allarry.length; i++) {
+			for (int j = 0; j < allarry[0].length; j++) {
+				int rand = (int) (Math.random() * 10) % 4;
+				if (rand == 0) {
+					allarry[i][j] = 0;
+				} else {
+					allarry[i][j] = (int) (Math.random() * 10) % 10 + 1;
+				}
+
+			}
+
+		}
 
 		System.out.println("E主任：");
 		System.out.println("MQ運送の件、お願いします。\n");
@@ -81,48 +101,156 @@ public class WarehouseManager {
 
 		System.out.print("C...");
 
-
 		//ここに配列Cの要素をすべて出力する処理を記述する。
+		for (int j = 0; j < carry.length; j++) {
+			System.out.print(carry[j]);
 
+			if (j < 4) {
 
-		System.out.print("\n\nD...");
-
+				System.out.print(",");
+			}
+		}
 
 		//ここに配列Dの要素をすべて出力する処理を記述する。
+		System.out.print("\n\nD...");
+		for (int j = 0; j < darry.length; j++) {
+			System.out.print(darry[j]);
 
+			if (j < 4) {
 
-		System.out.print("\n\nE...");
-
+				System.out.print(",");
+			}
+		}
 
 		//ここに配列Eの要素をすべて出力する処理を記述する。
+		System.out.print("\n\nE...");
+		for (int j = 0; j < earry.length; j++) {
+			System.out.print(earry[j]);
 
+			if (j < 4) {
 
+				System.out.print(",");
+			}
+		}
 		System.out.println("\n\nでした。直してきます...\n");
-
 
 		//ここに詰め替え処理を記述する
 
+		for (int i = 0; i < darry.length; i++) {
+
+			if (darry[i] == 0) {
+				num = i;
+			}
+			for (int j = 0; j < earry.length; j++) {
+
+				if (earry[j] > 0) {
+					sum = darry[num];
+					darry[num] = earry[j];
+					earry[j] = sum;
+					break;
+				}
+
+			}
+
+		}
+		for (int i = 0; i < carry.length; i++) {
+
+			if (carry[i] == 0) {
+				num = i;
+			}
+			for (int j = 0; j < darry.length; j++) {
+
+				if (darry[j] > 0) {
+					sum = carry[num];
+					carry[num] = darry[j];
+					darry[j] = sum;
+					break;
+				}
+
+			}
+
+		}
+		for (int i = 0; i < darry.length; i++) {
+
+			if (darry[i] == 0) {
+				num = i;
+			}
+			for (int j = 0; j < earry.length; j++) {
+
+				if (earry[j] > 0) {
+					sum = darry[num];
+					darry[num] = earry[j];
+					earry[j] = sum;
+					break;
+				}
+
+			}
+
+		}
+
+		for (int t = 0; t < darry.length - 1; t++) {
+			for (int j = t + 1; j < darry.length; j++) {
+				if (darry[t] < darry[j]) {
+					sum = earry[t];
+					darry[t] = darry[j];
+					darry[j] = sum;
+
+				}
+
+			}
+
+		}
+
+		for (int t = 0; t < earry.length - 1; t++) {
+			for (int j = t + 1; j < earry.length; j++) {
+				if (earry[t] < earry[j]) {
+					sum = earry[t];
+					earry[t] = earry[j];
+					earry[j] = sum;
+
+				}
+
+			}
+
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
 
 		System.out.print("C...");
+		for (int j = 0; j < carry.length; j++) {
+			System.out.print(carry[j]);
 
+			if (j < 4) {
 
+				System.out.print(",");
+			}
+		}
 		//ここに配列Cの要素をすべて出力する処理を記述する。
-
 
 		System.out.print("\n\nD...");
 
+		for (int j = 0; j < darry.length; j++) {
+			System.out.print(darry[j]);
 
+			if (j < 4) {
+
+				System.out.print(",");
+			}
+		}
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
 
 		System.out.print("\n\nE...");
 
+		for (int j = 0; j < earry.length; j++) {
+			System.out.print(earry[j]);
 
+			if (j < 4) {
+
+				System.out.print(",");
+			}
+		}
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
 
 		System.out.println("\n\nになりました。\n");
 

@@ -33,15 +33,34 @@
 
 package lesson04.challenge06;
 
+import java.util.Random;
+
 public class WarehouseManager {
 
 	public static void main(String[] args) {
 
 		int[] ABKosanArray = new int[5];
 
+		int intputNum = 0;
+		boolean loopFlag = false;
 
-		//ここに重複チェックおよび値の代入処理を記述する
+		for (int t = 0; t < ABKosanArray.length; t++) {
 
+			do {
+				loopFlag = false;
+				intputNum = (int) (Math.random() * 10) % 5 + 1;
+
+				for (int i = 0; i < ABKosanArray.length; i++) {
+					if (ABKosanArray[i] == intputNum) {
+						loopFlag = true;
+						break;
+					}
+				}
+
+			} while (loopFlag);
+
+			ABKosanArray[t] = intputNum;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の入れ替えをお願いします。\n");
@@ -57,10 +76,17 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに値の入れ替え処理を記述する
 
+		Random rand = new Random();
 
+		for (int i = ABKosanArray.length - 1; i > 0; i--) {
+			int j = rand.nextInt(i + 1);
+
+			int temp = ABKosanArray[i];
+			ABKosanArray[i] = ABKosanArray[j];
+			ABKosanArray[j] = temp;
+		}
 		System.out.println("入れ替え後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
 			System.out.print(ABKosanArray[i]);
