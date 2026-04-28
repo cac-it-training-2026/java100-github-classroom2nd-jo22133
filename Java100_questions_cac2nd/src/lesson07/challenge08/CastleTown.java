@@ -34,48 +34,76 @@ package lesson07.challenge08;
 
 class Samurai {
 
-    protected String name;
+	protected String name;
+	protected String domain;
 
-    void fight() {
-        System.out.println("戦うよ～。");
-    }
+	void fight() {
+		System.out.println("戦うよ～。");
+	}
 
-    void work() {
-        System.out.println("何かして働くよ～");
-    }
+	void work() {
+		System.out.println("何かして働くよ～");
+	}
 
 }
 
-
 //ここにRetainerクラスを記述
 
+class Retainer extends Samurai {
+
+	/**
+	 * @param name
+	 * @param domain
+	 */
+	public Retainer(String domain, String name) {
+		this.name = name;
+		this.domain = domain;
+	}
+
+	void work() {
+
+		System.out.println("年貢を取り立てるよ～。");
+
+	}
+
+	@Override
+	public String toString() {
+
+		return "拙者は" + domain + name + "ともうす";
+	}
+
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("○△□藩の藩士を二つ作ります。\n");
+	public static void main(String[] args) {
+		System.out.println("○△□藩の藩士を二つ作ります。\n");
+		Retainer re = new Retainer("○△□藩の藩士", "テスト太郎");
+		//ここに適切な処理を記述
+		System.out.println(re);
+		Retainer reaRetainer = new Retainer("○△□藩の藩士", "テスト次郎");
+		System.out.println(reaRetainer);
+		System.out.println("\n同じ藩に所属しているか確認します。\n");
 
+		//ここに適切な処理を記述
+		if (re.domain.equals(reaRetainer.domain)) {
 
-        //ここに適切な処理を記述
+			System.out.println("【同じ藩に所属しています】");
+		}
 
+		System.out.println("\n○△×藩の藩士を一つ作ります。\n");
 
-        System.out.println("\n同じ藩に所属しているか確認します。\n");
+		//ここに適切な処理を記述
+		Retainer ra = new Retainer("○△×藩士", "テスト三郎");
+		System.out.println(ra);
 
+		System.out.println("\n同じ藩に所属しているか確認します。\n");
+		if (ra.domain.equals("○△□藩")) {
+			System.out.println("【同じ藩に所属しています】");
+		} else {
+			System.out.println("【同じ藩に所属していません】");
+		}
+		//ここに適切な処理を記述
 
-        //ここに適切な処理を記述
-
-
-        System.out.println("\n○△×藩の藩士を一つ作ります。\n");
-
-
-        //ここに適切な処理を記述
-
-
-        System.out.println("\n同じ藩に所属しているか確認します。\n");
-
-
-        //ここに適切な処理を記述
-
-
-    }
+	}
 }
