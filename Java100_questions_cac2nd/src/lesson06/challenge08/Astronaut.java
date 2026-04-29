@@ -21,48 +21,55 @@
 package lesson06.challenge08;
 
 class Spaceship {
-    private int air;
-    private int fuel;
-    private static int number;
 
-    public Spaceship() {
-        System.out.println("新しい宇宙船を作成します。\n");
-        number++;
-    }
+	private int air;
+	private int fuel;
+	private static int number;
 
-    public Spaceship(int air, int fuel) {
-        this.air = air;
-        this.fuel = fuel;
-    }
+	public Spaceship() {
+		System.out.println("新しい宇宙船を作成します。\n");
+		number++;
+	}
 
-    public int getFuel() {
-        return fuel;
-    }
+	public Spaceship(int air, int fuel) {
+		this.air = air;
+		this.fuel = fuel;
+	}
 
-    public void setFuel(int fuel) {
-        this.fuel = fuel;
-    }
+	public int getFuel() {
+		return fuel;
+	}
 
-    public int getAir() {
-        return air;
-    }
+	public void setFuel(int fuel) {
+		this.fuel = fuel;
+	}
 
-    public void setAir(int air) {
-        this.air = air;
-    }
+	public int getAir() {
+		return air;
+	}
 
-    //ここに適切な処理を記述する。
+	public void setAir(int air) {
+		this.air = air;
+	}
 
+	//ここに適切な処理を記述する。
+	public void count() {
+
+		System.out.println("宇宙船は全部で" + number + "台あります。");
+
+	}
 }
 
 public class Astronaut {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        Spaceship spaceship1 = new Spaceship();
-        Spaceship spaceship2 = new Spaceship();
-        Spaceship spaceship3 = new Spaceship();
+		Spaceship spaceship1 = new Spaceship();
+		Spaceship spaceship2 = new Spaceship();
+		Spaceship spaceship3 = new Spaceship();
 
-        //ここに適切な処理を記述する。
-    }
+		//ここに適切な処理を記述する。
+		spaceship3.count();
+
+	}
 }
